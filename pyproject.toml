@@ -1,11 +1,11 @@
 [tool.poetry]
-name = "my-blank-webapp"
+name = "leaklyticks"
 version = "0.1.0"
-description = "A initial set-up for my web application projects."
+description = "An website that informs the user if his/her password were already leaked"
 authors = ["André Carvalho <alac1984@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "my_blank_webapp"}]
+packages = [{include = "leaklyticks"}]
 
 [tool.poetry.dependencies]
 python = "^3.10"

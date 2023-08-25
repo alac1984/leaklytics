@@ -6,107 +6,288 @@
   <title></title>
 
   <link rel="stylesheet" href="http://yui.yahooapis.com/3.5.1/build/cssreset/cssreset-min.css">
-  <link rel="stylesheet" href="styles.css">
   <style>
-    @import url(https://fonts.googleapis.com/css?family=Oswald:700|Quattrocento);
+    @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
 
-    * {
-        box-sizing: border-box;
+    *, *:before, *:after {
+      -webkit-box-sizing: inherit;
+      -moz-box-sizing: inherit;
+      box-sizing: inherit;
     }
 
-    body,html {
-        min-height: 100%;
-        height: 100%;
+    ::-webkit-input-placeholder {
+      color: #56585b;
+    }
+
+    ::-moz-placeholder {
+      color: #56585b;
+    }
+
+    :-moz-placeholder {
+      color: #56585b;
+    }
+
+    html {
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
     }
 
     body {
-        align-items: center;
-        display: flex;
-        justify-content: center;
-        margin: 0;
-        color: #ececec;
-        font-family: Quattrocento, serif;
-        line-height: 1.8925;
-        background-image: url(https://images.unsplash.com/photo-1439723680580-bfd9d28ef9b6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&w=1080&fit=max&s=1636880f0251ebc45d0c9492a28f4560);
-        background-size: cover;
-        background-position: center;
-        &:before,
-        &:after {
-            content: '';
-            position: absolute;
-        }
-        &:before {
-            mix-blend-mode: overlay;
-            top: 2%;
-            right: 2%;
-            bottom: 2%;
-            left: 2%;
-            border: 1px solid #efefef;
-            z-index: 2;
-        }
-        &:after {
-            top: 0;
-            left: 0;
-            height: 100%;
-            width: 100%;
-            opacity: 0.6;
-            background: rgba(#1a1a1a, 1);
-            background: radial-gradient( circle at top, #CC774D, #1a1a1a );
-        }
-        @media (max-height: 450px) {
-            font-size: 10px;
-        }
+      font-family: 'Lato', sans-serif;
+      margin: 0;
+      background: url("{{ request.url_for('static', path='img/background.png')}}") no-repeat center center fixed;
+      -webkit-background-size: cover;
+      -moz-background-size: cover;
+      background-size: cover;
+      color: #0a0a0b;
+      overflow: hidden;
     }
 
-    .content {
-        position: relative;
-        max-width: 650px;
-        z-index: 1;
-        padding: 4%;
-        text-align: justify;
+    ul, nav{
+      list-style: none;
+      padding: 0;
     }
 
-    p {
-        position: relative;
-        padding: 1em 0;
-        letter-spacing: 1px;
+    a {
+      color: #fff;
+      text-decoration: none;
+      cursor: pointer;
+      opacity: 0.9;
+    }
 
-        &:before,
-        &:after {
-            mix-blend-mode: difference;
-            content: "";
-            position: absolute;
-            left: calc(25% / 2);
-            width: 75%;
-            height: 1px;
-            background: #D4A790;
-            // background: linear-gradient(to right, #7F5B4B, #3B1E11);
-        }
-        &:before {
-            top: 0;
-        }
-        &:after {
-            bottom: 0;
-        }
+    a:hover {
+      opacity: 1;
     }
 
     h1 {
-        margin-top: 0;
-        font-family: Oswald;
-        font-size: 3em;
-        font-weight: bold;
-        letter-spacing: 2px;
-        line-height: 1.125;
-        text-transform: uppercase;
-        text-align: center;
+      font-size: 3rem;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 0 1.5rem;
+    }
+
+    i {
+      font-size: 1.3rem;
+    }
+
+    header {
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 10;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: #fff;
+      padding: 10px 100px 0;
+    }
+
+    header nav ul {
+      display: flex;
+    }
+
+    header nav li{
+      margin: 0 15px;
+    }
+
+    header nav li:first-child{
+      margin-left: 0; 
+    }
+
+    header nav li:last-child{
+      margin-right: 0;  
+    }
+
+    a.btn {
+      color: #fff;
+      padding: 10px;
+      border: 1px solid rgba(255,255,255,0.5);
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    a.btn:hover {
+      background: #d73851;
+      border: 1px solid #d73851;
+      color: #fff;
+    }
+
+    .cover  {
+      height: 100vh;
+      width: 100%;
+      background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
+      background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+      background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
+      padding: 20px 50px;
+      display: -webkit-box;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      flex-direction: column;
+      -webkit-box-pack: center;
+      justify-content: center;
+      -webkit-box-align: center;
+      align-items: center;
+    }
+
+    .flex-form input[type="submit"] {
+      background: #ef3f5a;
+      border: 1px solid #ef3f5a;
+      color: #fff;
+      padding: 0 30px;
+      cursor: pointer;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      transition: all 0.2s;
+    }
+
+    .flex-form input[type="submit"]:hover {
+      background: #d73851;
+      border: 1px solid #d73851;
+    }
+
+    .flex-form {
+      display: -webkit-box;
+      display: flex;
+      z-index: 10;
+      position: relative;
+      width: 500px;
+      box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+    }
+
+    .flex-form > * {
+      border: 0;
+      padding: 0 0 0 10px;
+      background: #fff;
+      line-height: 50px;
+      font-size: 1rem;
+      border-radius: 0;
+      outline: 0;
+      -webkit-appearance: none;
+    }
+
+    input[type="search"] {
+      flex-basis: 500px;
+    }
+
+    #madeby {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      padding: 25px 100px;
+      color: #fff;
+    }
+
+    @media all and (max-width:800px) {
+      body {
+        font-size: 0.9rem;
+      }
+
+      .flex-form {
+        width: 100%;
+      }
+
+      input[type="search"] {
+        flex-basis: 100%;
+      }
+
+      .flex-form > * {
+        font-size: 0.9rem;
+      }
+
+      header {
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+        padding: 10px !important;
+      }
+
+      header h2 {
+        margin-bottom: 15px;
+      }
+
+      h1 {
+        font-size: 2rem;
+      }
+
+      .cover {
+        padding: 20px;
+      }
+
+      #madeby {
+        padding: 30px 20px;
+      }
+    }
+
+    @media all and (max-width:360px) {
+      header nav li{
+        margin: 0 10px;
+      }
+
+      .flex-form {
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        flex-direction: column;
+      }
+
+      input[type="search"] {
+        flex-basis: 0;
+      }
+
+      label {
+        display: none;
+      }
     }
   </style>
 
 </head>
 <body>
-  <div class="content">
-    <h1>start here!</h1>
-    <p>Here you start develop your webpage. Right now you're a developer full of dreams, so I'll give you some piece of advice. Theron Q. Dumont once said: "It is of the utmost value to learn how to concentrate. To make the greatest success of anything you must be able to concentrate your entire thought upon the idea you are working on. The person that is able to concentrate utilizes all constructive thoughts and shuts out all destructive ones. The greatest man would accomplish nothing if he lacked concentration."</p>
+  <div class="container">
+
+    <header>
+      <h2><a href="#"><ion-icon name="key-outline"></ion-icon> Leaklytics</a></h2>
+      
+      <nav>
+        <ul>
+          <li>
+            <a href="#" title="Hotels">Sobre</a>
+          </li>
+          <li>
+            <a href="#" title="Flights">Contato</a>
+          </li>
+          <!-- <li> -->
+          <!--   <a href="#" title="Tours">Tours</a> -->
+          <!-- </li> -->
+          <!-- <li> -->
+          <!--   <a class="btn" href="#" title="Register / Log In">Register/Log In</a> -->
+          <!-- </li> -->
+        </ul>
+      </nav>
+    </header>
+
+    <div class="cover">
+      <h1>Was Your Password Leaked?</h1>
+      <form  class="flex-form">
+        <label for="from">
+          <i class="ion-location"></i>
+        </label>
+        <input type="search" placeholder="Type a password here">
+        <input type="submit" value="Search">
+      </form>
+      <div id="madeby">
+        <span>
+          Photo by <a href="https://unsplash.com/pt-br/@flyd2069" target="_blank">FLY:D</a>
+        </span>
+      </div>
+    </div>
+
   </div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </body>
 </html>
