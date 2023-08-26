@@ -29,9 +29,6 @@
             <a href="#" title="Flights">Contact</a>
           </li>
           <!-- <li> -->
-          <!--   <a href="#" title="Tours">Tours</a> -->
-          <!-- </li> -->
-          <!-- <li> -->
           <!--   <a class="btn" href="#" title="Register / Log In">Register/Log In</a> -->
           <!-- </li> -->
         </ul>
@@ -41,10 +38,13 @@
     <div class="cover">
       <h1>Was Your Password Leaked?</h1>
       <form  class="flex-form">
-        <label for="from">
+        <label for="pass">
           <ion-icon name="lock-closed-outline"></ion-icon>
         </label>
-        <input type="password" placeholder="Type a password here">
+        <input id="passwordInput" type="password" placeholder="Type a password here">
+        <label for="eye">
+          <ion-icon id="eyeIcon" name="eye-off-outline" onclick="togglePasswordVisibility()"></ion-icon>
+        </label>
         <input type="submit" value="Search">
       </form>
       <div id="madeby">
@@ -57,5 +57,6 @@
   </div>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="{{ request.url_for('static', path='js/main.js') }}"></script>
 </body>
 </html>
