@@ -9,5 +9,5 @@ router = APIRouter()
 
 # Dummy root endpoint, delete it
 @router.get("/", response_class=HTMLResponse)
-async def root(request: Request, session: AsyncSession = Depends(get_session)):
+async def api_root(request: Request, session: AsyncSession = Depends(get_session)):
     return {"hello": "world"}

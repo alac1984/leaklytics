@@ -18,19 +18,19 @@
   <div class="container">
 
     <header>
-      <h2><a href="#"><ion-icon name="key-outline"></ion-icon> Leaklytics</a></h2>
+      <h2><a href="{{request.url_for('webapp_root')}}"><ion-icon name="key-outline"></ion-icon> Leaklytics</a></h2>
 
       <nav>
         <ul>
           <li>
-            <a href="#" title="Hotels">About</a>
+            <a hx-get="/about" hx-target="#content" title="About">About</a>
           </li>
           <li>
-            <a href="#" title="Flights">Contact</a>
+            <a hx-get="/contact" hx-target="#content" title="Contact">Contact</a>
           </li>
-          <!-- <li> -->
-          <!--   <a class="btn" href="#" title="Register / Log In">Register/Log In</a> -->
-          <!-- </li> -->
+          <li>
+            <a class="btn" href="#" title="Register / Log In">Register/Log In</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -47,6 +47,8 @@
         </label>
         <input type="submit" value="Search">
       </form>
+      <div id="content">
+      </div>
       <div id="madeby">
         <span>
           Photo by <a href="https://unsplash.com/pt-br/@flyd2069" target="_blank">FLY:D</a>
@@ -57,6 +59,7 @@
   </div>
   <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
   <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <script src="https://unpkg.com/htmx.org@1.9.5"></script>
   <script src="{{ request.url_for('static', path='js/main.js') }}"></script>
 </body>
 </html>

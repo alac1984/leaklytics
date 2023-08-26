@@ -10,7 +10,16 @@ router = APIRouter()
 templates = Jinja2Templates(directory="templates")
 
 
-# Dummy root endpoint, delete it
 @router.get("/", response_class=HTMLResponse)
-async def root(request: Request, session: AsyncSession = Depends(get_session)):
+async def webapp_root(request: Request, session: AsyncSession = Depends(get_session)):
     return templates.TemplateResponse("index.html", {"request": request})
+
+
+@router.get("/about", response_class=HTMLResponse)
+async def about(request: Request):
+    return templates.TemplateResponse("about.html", {"request": request})
+
+
+@router.get("/contact", response_class=HTMLResponse)
+async def contact(request: Request):
+    return templates.TemplateResponse("contact.html", {"request": request})
