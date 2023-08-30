@@ -31,7 +31,6 @@ body {
     -moz-background-size: cover;
     background-size: cover;
     color: #0a0a0b;
-    overflow: hidden;
 }
 
 ul, nav{
@@ -62,16 +61,17 @@ i {
 }
 
 header {
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
-    z-index: 10;
+    z-index: 15;
     width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: #fff;
-    padding: 10px 100px 0;
+    padding: 30px 100px 30px;
+    background-color: #088a3b;
 }
 
 header nav ul {
@@ -83,11 +83,11 @@ header nav li{
 }
 
 header nav li:first-child{
-    margin-left: 0; 
+    margin-left: 0;
 }
 
 header nav li:last-child{
-    margin-right: 0;  
+    margin-right: 0;
 }
 
 a.btn {
@@ -100,18 +100,24 @@ a.btn {
 }
 
 a.btn:hover {
-    background: #d73851;
-    border: 1px solid #d73851;
+    background: #ce7286;
+    border: 1px solid #ce7286;
     color: #fff;
 }
 
-.cover  {
-    height: 100vh;
+.container {
     width: 100%;
-    background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0)));
-    background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
-    background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%);
-    padding: 20px 50px;
+    height: 100vh;
+    overflow: auto;
+}
+
+.cover  {
+    /* height: 100vh; */
+    width: 100%;
+    /* background: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,0.05)), to(rgba(0,0,0,0))); */
+    /* background: -webkit-linear-gradient(top, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%); */
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.05) 0%, rgba(0,0,0,0) 100%); */
+    padding: 120px 50px;
     display: -webkit-box;
     display: flex;
     -webkit-box-orient: vertical;
@@ -121,11 +127,12 @@ a.btn:hover {
     justify-content: center;
     -webkit-box-align: center;
     align-items: center;
+    overflow-y: auto;
 }
 
 .flex-form input[type="submit"] {
-    background: #ef3f5a;
-    border: 1px solid #ef3f5a;
+    background: #913267;
+    border: 1px solid #913267;
     color: #fff;
     padding: 0 30px;
     cursor: pointer;
@@ -135,8 +142,8 @@ a.btn:hover {
 }
 
 .flex-form input[type="submit"]:hover {
-    background: #d73851;
-    border: 1px solid #d73851;
+    background: #ce7286;
+    border: 1px solid #ce7286;
 }
 
 .flex-form label[for="eye"] {
@@ -168,13 +175,35 @@ input[type="password"], input[type="text"] {
     flex-basis: 500px;
 }
 
-#madeby {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    padding: 25px 100px;
-    color: #fff;
+/* TODO: integrate content width with media queries */
+#content {
+    margin: 15px 0 0 0;
+    background-color: #fff;
+    width: 60%;
 }
+
+/********************
+ **** Scrollbar ****
+ *******************/
+/* This is for Chrome, Safari and newer versions of Opera */
+::-webkit-scrollbar {
+    width: 5px; /* Adjust width to make it thinner */
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1); /* Color of the track */
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(0, 0, 0, 0.4); /* Color of the thumb */
+}
+
+/* For Firefox from version 64 onward */
+body {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.4) rgba(0, 0, 0, 0.1);
+}
+
 
 @media all and (max-width:800px) {
     body {

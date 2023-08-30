@@ -5,8 +5,9 @@
 
   <title>Leaklytics</title>
   <style>
-    body {
-      background: url("{{ request.url_for('static', path='img/background.png')}}") no-repeat center center fixed;
+    .container {
+      background: url("{{ request.url_for('static', path='img/background-darker.jpg')}}") no-repeat center center fixed;
+      background-size: cover;
     }
   </style>
 
@@ -48,11 +49,6 @@
         <input type="submit" value="Search">
       </form>
       <div id="content">
-      </div>
-      <div id="madeby">
-        <span>
-          Photo by <a href="https://unsplash.com/pt-br/@flyd2069" target="_blank">FLY:D</a>
-        </span>
       </div>
     </div>
 
